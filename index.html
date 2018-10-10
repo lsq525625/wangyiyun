@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>云音乐</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="music">
+        <!-- 左边搜索区 -->
+        <div class="left">
+            <input type="text" placeholder="请输入搜索的歌曲" v-model.trim="musicName" @keyup.enter='search'>
+            <transition-group name='list' tag='ul'>
+                <li v-for="(item, index) in musicList" :key="index" v-cloak @dblclick='playMusic(item.id)'>
+                    {{item.name}}--{{item.artists[0].name}}
+                </li>
+            </transition-group>
+        </div>
+        <!-- 右边播放区 -->
+        <div class="right">
+            <img class="pic" :src="picUrl==''?'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538633712408&di=9a113a6cf37087af057f094e370ceaa4&imgtype=0&src=http%3A%2F%2Fc.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fa044ad345982b2b7cac747293badcbef77099b86.jpg':picUrl"
+                alt="">
+            <audio controls :src="musicUrl" autoplay></audio>
+            <!-- 评论 -->
+            <transition-group name="comment" tag="ul">
+                <li v-for="(item, index) in commentsList" :key="item.commentId">
+                    <img :src="item.user.avatarUrl" alt="">
+                    <div class="comment-right">
+                        <p class="nickname" v-cloak>{{item.user.nickname}}</p>
+                        <p class="content" v-cloak>{{item.content}}</p>
+                    </div>
+                </li>
+            </transition-group>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>

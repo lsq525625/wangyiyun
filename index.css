@@ -1,0 +1,186 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#music {
+    height: 100%;
+    display: flex
+}
+
+/* 左边样式 */
+.left {
+    flex: 1;
+    height: 100%;
+    background-color: skyblue;
+    overflow-y: scroll;
+}
+
+.left input {
+    width: 450px;
+    height: 50px;
+    margin: 50px 100px 0;
+    outline: 0;
+    border-radius: 20px;
+    border: 1px solid skyblue;
+    font-size: 20px;
+    padding-left: 20px;
+    font-weight: 700
+}
+
+.left ul {
+    padding: 0;
+    list-style: none;
+
+}
+
+.left ul li {
+    width: 450px;
+    height: 40px;
+    margin-left: 100px;
+    border: 1px solid #000;
+    background-color: #0ff;
+    border-radius: 10px;
+    margin-top: 10px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* 右边样式 */
+.right {
+    flex: 1;
+    height: 100%;
+    background-color: pink;
+    text-align: center;
+}
+
+.right img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    padding: 80px
+}
+
+.right audio {
+    display: block;
+    margin: 0 auto;
+}
+
+[v-cloak] {
+    display: none
+}
+
+/*歌曲列表过度 */
+.list-enter-active,
+.list-leave-active {
+    transition: all 1s;
+}
+
+.list-enter,
+.list-leave-to
+
+/* .list-leave-active for below version 2.1.8 */
+    {
+    opacity: 0;
+    transform: translateX(300px);
+}
+
+/* 图像一直旋转*/
+/* 写一个剧本 */
+@keyframes infinitePlay {
+    form {
+        transform: scale(1) rotateZ(0deg)
+    }
+
+    50% {
+        transform: scale(1.1) rotateZ(180deg)
+    }
+
+    to {
+        transform: scale(1) rotateZ(360deg)
+    }
+}
+
+/* 定义一个动画的类 */
+/* 开始播放 */
+.rotate {
+    animation: infinitePlay 10s infinite linear;
+}
+
+/* 暂停播放 */
+.pause {
+    animation-play-state: paused;
+}
+
+/* 评论详情 */
+.right li {
+    height: 80px;
+    border: 1px solid #000;
+    background-color: skyblue;
+    display: flex;
+    list-style: none;
+    padding: 5px
+}
+
+.right li img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    padding: 0
+}
+
+.right li .comment-right {
+    flex: 1;
+}
+
+.right li p {
+    margin: 0;
+    padding: 0;
+}
+
+.right li .comment-right .nickname {
+    color: white;
+    text-align: center
+}
+
+.right li .comment-right .content {
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.right {
+    overflow-y: scroll;
+}
+
+/* 列表过渡的样式 */
+.list-item {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.comment-item {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.comment-enter-active,
+.comment-leave-active {
+    transition: all 1s;
+}
+
+.comment-enter,
+.comment-leave-to
+
+/* .list-leave-active for below version 2.1.8 */
+    {
+    opacity: 0;
+    transform: translateX(300px);
+}
